@@ -14,6 +14,7 @@ fn main() -> Result<(), ExitFailure> {
     let content = std::fs::read_to_string(&args.path)
         .with_context(|_| format!("cannae read file `{}`", args.path.display()))?;
     grrs::find_matches(&content, &args.pattern, &mut std::io::stdout()); 
+    
     Ok(())
     
 }
