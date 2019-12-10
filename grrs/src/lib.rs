@@ -1,7 +1,9 @@
 pub fn find_matches(content: &str, pattern: &str, mut writer: impl std::io::Write) {
+	let mut line_counter = 0;
     for line in content.lines() {
+    	line_counter+=1;
         if line.contains(pattern) {
-            writeln!(writer, "{}", line);
+            writeln!(writer, "{}: \t{}", line_counter, line);
         }
     }
 }
